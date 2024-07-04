@@ -13,9 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const dns = require("dns");
 const mongo = mongoose
-  .connect(
-    "mongodb+srv://jaydeepp:otouYTJipiLBfhTI@cluster0.jnvgpkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("connected to mongodb"))
   .catch((err) => {
     console.log(err);
